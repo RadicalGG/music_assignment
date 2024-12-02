@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj5vv5r8glcjl"]
+
+[ext_resource type="Script" path="res://singer.gd" id="1_blag6"]
+[ext_resource type="Script" path="res://phaser.gd" id="1_f1oyc"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_jr87t"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_f1oyc")
+
+[node name="HSlider" type="HSlider" parent="."]
+offset_left = 189.0
+offset_top = 53.0
+offset_right = 981.0
+offset_bottom = 69.0
+max_value = 20.0
+step = 0.1
+
+[node name="mouth" type="ColorRect" parent="."]
+offset_left = 393.0
+offset_top = 349.0
+offset_right = 646.0
+offset_bottom = 429.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 392.0
+offset_top = 154.0
+offset_right = 432.0
+offset_bottom = 194.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 599.0
+offset_top = 163.0
+offset_right = 639.0
+offset_bottom = 203.0
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 500.0
+offset_top = 235.0
+offset_right = 540.0
+offset_bottom = 275.0
+
+[node name="singer" type="Node2D" parent="."]
+script = ExtResource("1_blag6")
+
+[node name="Player" type="AudioStreamPlayer" parent="singer"]
+stream = SubResource("AudioStreamGenerator_jr87t")
+
+[node name="singer2" type="Node2D" parent="."]
+script = ExtResource("1_blag6")
+range_start = 3000
+range_end = -200
+
+[node name="Player" type="AudioStreamPlayer" parent="singer2"]
+stream = SubResource("AudioStreamGenerator_jr87t")
+
+[node name="singer3" type="Node2D" parent="."]
+script = ExtResource("1_blag6")
+range_start = -1000
+range_end = 1000
+
+[node name="Player" type="AudioStreamPlayer" parent="singer3"]
+stream = SubResource("AudioStreamGenerator_jr87t")
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

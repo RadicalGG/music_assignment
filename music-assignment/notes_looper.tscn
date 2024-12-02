@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://pe475jgh20kj"]
+[gd_scene load_steps=21 format=3 uid="uid://pe475jgh20kj"]
 
 [ext_resource type="Script" path="res://audio_demo.gd" id="1_x7ume"]
 [ext_resource type="AudioStream" uid="uid://dud26gwijfgyk" path="res://audio/Harmony in Creation.mp3" id="2_k8mbe"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dbqmaras2o2fv" path="res://piano/How_Bout_Dat_2.wav" id="16_vddqr"]
 [ext_resource type="AudioStream" uid="uid://rlm70ndjllid" path="res://piano/How_Bout_Dat_3.wav" id="17_s0f7r"]
 [ext_resource type="AudioStream" uid="uid://bhs2rwd68kjuy" path="res://piano/How_Bout_Dat_4.wav" id="18_3ff7x"]
+[ext_resource type="Script" path="res://singer.gd" id="18_xp1kv"]
 [ext_resource type="AudioStream" uid="uid://can8486t8gtom" path="res://piano/How_Bout_Dat_5.wav" id="19_0bkmg"]
 [ext_resource type="AudioStream" uid="uid://82fm3r4u3u7p" path="res://piano/How_Bout_Dat_6.wav" id="20_cxamp"]
 [ext_resource type="AudioStream" uid="uid://by2una83scjxd" path="res://piano/How_Bout_Dat_7.wav" id="21_7kj12"]
@@ -20,6 +21,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svh1v"]
 size = Vector2(300, 39)
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_khdfu"]
 
 [node name="audio_demo" type="Node2D"]
 script = ExtResource("1_x7ume")
@@ -157,6 +160,12 @@ stream = ExtResource("28_ibp4t")
 [node name="Timer" type="Timer" parent="Node2D"]
 wait_time = 0.2
 autostart = true
+
+[node name="singer" type="Node2D" parent="."]
+script = ExtResource("18_xp1kv")
+
+[node name="Player" type="AudioStreamPlayer" parent="singer"]
+stream = SubResource("AudioStreamGenerator_khdfu")
 
 [connection signal="value_changed" from="HSlider4" to="." method="_on_h_slider_4_value_changed"]
 [connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
