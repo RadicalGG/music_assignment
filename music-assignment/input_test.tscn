@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dinc6gxauu5uy"]
+
+[ext_resource type="Script" path="res://input_test.gd" id="1_7koh3"]
+[ext_resource type="AudioStream" uid="uid://bbayfo3qv7uf4" path="res://10min_528hz_sine_wave_pure_tone_[_YouConvert.net_].mp3" id="2_6dr8n"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_7koh3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6dr8n")

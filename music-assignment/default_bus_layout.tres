@@ -7,13 +7,13 @@ rate_hz = 0.01
 [sub_resource type="AudioEffectChorus" id="AudioEffectChorus_fbleb"]
 resource_name = "Chorus"
 
-[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_lbb8o"]
-resource_name = "StereoEnhance"
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_akvdu"]
+resource_name = "HighPassFilter"
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectPhaser_hdf6q")
 bus/0/effect/0/enabled = true
 bus/0/effect/1/effect = SubResource("AudioEffectChorus_fbleb")
 bus/0/effect/1/enabled = true
-bus/0/effect/2/effect = SubResource("AudioEffectStereoEnhance_lbb8o")
+bus/0/effect/2/effect = SubResource("AudioEffectHighPassFilter_akvdu")
 bus/0/effect/2/enabled = true

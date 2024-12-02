@@ -43,8 +43,6 @@ func _on_area_2d_mouse_entered(e) -> void:
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	
-	
 	var s = remap(event.position.x, 208, 508, 0, 2)
 	$AudioStreamPlayer.pitch_scale = s
 	var p = get_viewport().get_mouse_position()
@@ -58,19 +56,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 
 func _on_h_slider_3_value_changed(value: float) -> void:
 	
-	
-	$drum_looper/Timer.wait_time = remap(value, 0, 100, 5, 0.01)
+	$looper/Timer.wait_time = remap(value, 0, 100, 5, 0.01)
 	pass # Replace with function body.
 
 
 func _on_button_3_button_down() -> void:
 	$AudioStreamPlayer.play()
-	pass # Replace with function body.
-
-
-func _on_h_slider_4_value_changed(value: float) -> void:
-	var lp:AudioEffectLowPassFilter = AudioServer.get_bus_effect(0, 1)
-	lp.cutoff_hz = value
 	pass # Replace with function body.
 
 

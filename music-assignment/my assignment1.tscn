@@ -94,44 +94,44 @@ offset_bottom = 403.0
 max_value = 20.0
 step = 0.01
 
-[node name="drum_looper" type="Node2D" parent="."]
+[node name="looper" type="Node2D" parent="."]
 visible = false
 script = ExtResource("3_ou6hb")
 
-[node name="Clap-tape" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Clap-tape" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("4_ox6nn")
 
-[node name="Crash-808" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Crash-808" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("5_o3wu7")
 
-[node name="Crash-noise" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Crash-noise" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("6_6x61a")
 
-[node name="Hihat-analog" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Hihat-analog" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("7_sxfx5")
 
-[node name="Kick-acoustic01" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Kick-acoustic01" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("8_o2amh")
 
-[node name="Openhat-analog" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Openhat-analog" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("9_8ulml")
 
-[node name="Perc-chirpy" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Perc-chirpy" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("10_8x5h3")
 
-[node name="Snare-dist01" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Snare-dist01" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("11_08xrn")
 
-[node name="Snare-punch" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Snare-punch" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("12_a4fo7")
 
-[node name="Tom-lofi" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Tom-lofi" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("13_31tq5")
 
-[node name="Tom-short" type="AudioStreamPlayer" parent="drum_looper"]
+[node name="Tom-short" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("14_k3cbx")
 
-[node name="Timer" type="Timer" parent="drum_looper"]
+[node name="Timer" type="Timer" parent="looper"]
 wait_time = 0.1
 
 [node name="Button2" type="Button" parent="."]
@@ -217,8 +217,8 @@ autostart = true
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="HSlider2" to="." method="_on_h_slider_2_value_changed"]
-[connection signal="timeout" from="drum_looper/Timer" to="drum_looper" method="_on_timer_timeout"]
-[connection signal="button_down" from="Button2" to="drum_looper" method="_on_button_2_button_down"]
+[connection signal="timeout" from="looper/Timer" to="looper" method="_on_timer_timeout"]
+[connection signal="button_down" from="Button2" to="looper" method="_on_button_2_button_down"]
 [connection signal="value_changed" from="HSlider3" to="." method="_on_h_slider_3_value_changed"]
 [connection signal="value_changed" from="HSlider5" to="." method="_on_h_slider_5_value_changed"]
-[connection signal="timeout" from="Node2D/Timer" to="drum_looper" method="_on_timer_timeout"]
+[connection signal="timeout" from="Node2D/Timer" to="looper" method="_on_timer_timeout"]

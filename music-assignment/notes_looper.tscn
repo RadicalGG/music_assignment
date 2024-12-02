@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://pe475jgh20kj"]
+[gd_scene load_steps=19 format=3 uid="uid://pe475jgh20kj"]
 
 [ext_resource type="Script" path="res://audio_demo.gd" id="1_x7ume"]
 [ext_resource type="AudioStream" uid="uid://dud26gwijfgyk" path="res://audio/Harmony in Creation.mp3" id="2_k8mbe"]
@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://dbqmaras2o2fv" path="res://piano/How_Bout_Dat_2.wav" id="16_vddqr"]
 [ext_resource type="AudioStream" uid="uid://rlm70ndjllid" path="res://piano/How_Bout_Dat_3.wav" id="17_s0f7r"]
 [ext_resource type="AudioStream" uid="uid://bhs2rwd68kjuy" path="res://piano/How_Bout_Dat_4.wav" id="18_3ff7x"]
-[ext_resource type="Script" path="res://singer.gd" id="18_xp1kv"]
 [ext_resource type="AudioStream" uid="uid://can8486t8gtom" path="res://piano/How_Bout_Dat_5.wav" id="19_0bkmg"]
 [ext_resource type="AudioStream" uid="uid://82fm3r4u3u7p" path="res://piano/How_Bout_Dat_6.wav" id="20_cxamp"]
 [ext_resource type="AudioStream" uid="uid://by2una83scjxd" path="res://piano/How_Bout_Dat_7.wav" id="21_7kj12"]
@@ -21,8 +20,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svh1v"]
 size = Vector2(300, 39)
-
-[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_khdfu"]
 
 [node name="audio_demo" type="Node2D"]
 script = ExtResource("1_x7ume")
@@ -70,22 +67,6 @@ offset_right = 477.0
 offset_bottom = 239.0
 text = "Play"
 
-[node name="HSlider" type="HSlider" parent="."]
-offset_left = 210.0
-offset_top = 333.0
-offset_right = 549.0
-offset_bottom = 349.0
-max_value = 4.0
-step = 0.01
-
-[node name="HSlider2" type="HSlider" parent="."]
-offset_left = 437.0
-offset_top = 387.0
-offset_right = 1034.0
-offset_bottom = 403.0
-max_value = 20.0
-step = 0.01
-
 [node name="Button2" type="Button" parent="."]
 offset_left = 89.0
 offset_top = 252.0
@@ -112,60 +93,54 @@ min_value = 20.0
 max_value = 20000.0
 value = 20.0
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="looper" type="Node2D" parent="."]
 script = ExtResource("3_dh07f")
 
-[node name="HowBoutDat" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("15_v412q")
 
-[node name="HowBoutDat2" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat2" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("16_vddqr")
 
-[node name="HowBoutDat3" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat3" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("17_s0f7r")
 
-[node name="HowBoutDat4" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat4" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("18_3ff7x")
 
-[node name="HowBoutDat5" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat5" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("19_0bkmg")
 
-[node name="HowBoutDat6" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat6" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("20_cxamp")
 
-[node name="HowBoutDat7" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat7" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("21_7kj12")
 
-[node name="HowBoutDat10" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat10" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("22_7ism4")
 
-[node name="HowBoutDat11" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat11" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("23_0mri8")
 
-[node name="HowBoutDat12" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat12" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("24_s10sm")
 
-[node name="HowBoutDat13" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat13" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("25_p34f5")
 
-[node name="HowBoutDat14" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat14" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("26_27tf8")
 
-[node name="HowBoutDat15" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat15" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("27_xdxr2")
 
-[node name="HowBoutDat16" type="AudioStreamPlayer" parent="Node2D"]
+[node name="HowBoutDat16" type="AudioStreamPlayer" parent="looper"]
 stream = ExtResource("28_ibp4t")
 
-[node name="Timer" type="Timer" parent="Node2D"]
+[node name="Timer" type="Timer" parent="looper"]
 wait_time = 0.2
 autostart = true
-
-[node name="singer" type="Node2D" parent="."]
-script = ExtResource("18_xp1kv")
-
-[node name="Player" type="AudioStreamPlayer" parent="singer"]
-stream = SubResource("AudioStreamGenerator_khdfu")
 
 [connection signal="value_changed" from="HSlider4" to="." method="_on_h_slider_4_value_changed"]
 [connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
@@ -173,8 +148,6 @@ stream = SubResource("AudioStreamGenerator_khdfu")
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="value_changed" from="HSlider2" to="." method="_on_h_slider_2_value_changed"]
 [connection signal="value_changed" from="HSlider3" to="." method="_on_h_slider_3_value_changed"]
 [connection signal="value_changed" from="HSlider5" to="." method="_on_h_slider_5_value_changed"]
-[connection signal="timeout" from="Node2D/Timer" to="Node2D" method="_on_timer_timeout1"]
+[connection signal="timeout" from="looper/Timer" to="looper" method="_on_timer_timeout1"]
