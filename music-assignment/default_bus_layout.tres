@@ -1,9 +1,21 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cak3s718vfbea"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://cak3s718vfbea"]
 
 [sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_hdf6q"]
 resource_name = "Phaser"
 rate_hz = 0.01
 
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_1di8x"]
+resource_name = "LowPassFilter"
+resonance = 0.48
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_y4hlo"]
+resource_name = "HighPassFilter"
+resonance = 1.0
+
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectPhaser_hdf6q")
 bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectLowPassFilter_1di8x")
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectHighPassFilter_y4hlo")
+bus/0/effect/2/enabled = false

@@ -10,18 +10,7 @@ func _ready() -> void:
 	num_samples = get_child_count() - 1
 	
 	for i in range(steps):
-		pattern.push_back(-1)
-	
-	pattern[0] = 4
-	pattern[2] = 3	
-	pattern[4] = 4
-	pattern[6] = 3
-	pattern[8] = 4
-	pattern[10] = 3
-	pattern[12] = 4
-	pattern[13] = 7
-	pattern[14] = 7
-	pattern[15] = 7
+		pattern.push_back(randi_range(0, num_samples -1 ))
 	
 	pass # Replace with function body.
 
@@ -34,15 +23,21 @@ func _process(delta: float) -> void:
 var current:int
 var num_samples:int
 
-func _on_timer_timeout() -> void:
+var dir = 1
+
+func _on_timer_timeout1() -> void:
 	var sn = pattern[current]
 	if sn != -1:		
 		var s = get_child(sn)
 		s.play()
 		print(current)
-	current = current + 1
+	current = current + dir
 	if current == steps:
-		current = 0;
+		current = current - 1
+		dir = - dir
+	if current == -1:
+		current = 0
+		dir = - dir
 	pass # Replace with function body.
 
 

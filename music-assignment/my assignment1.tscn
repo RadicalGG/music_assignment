@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://btfycm2ekt0i7"]
+[gd_scene load_steps=30 format=3 uid="uid://btfycm2ekt0i7"]
 
 [ext_resource type="AudioStream" uid="uid://dud26gwijfgyk" path="res://audio/Harmony in Creation.mp3" id="1_3hsxw"]
 [ext_resource type="Script" path="res://audio_demo.gd" id="1_cbxpo"]
@@ -14,21 +14,47 @@
 [ext_resource type="AudioStream" uid="uid://djtb1m43o8q0d" path="res://samples/snare-punch.wav" id="12_a4fo7"]
 [ext_resource type="AudioStream" uid="uid://bxcrxrwe6vmjd" path="res://samples/tom-lofi.wav" id="13_31tq5"]
 [ext_resource type="AudioStream" uid="uid://cnk8d6q23suq6" path="res://samples/tom-short.wav" id="14_k3cbx"]
+[ext_resource type="AudioStream" uid="uid://cgnbw7mi5m2bg" path="res://piano/How_Bout_Dat.wav" id="15_44dq1"]
+[ext_resource type="AudioStream" uid="uid://dbqmaras2o2fv" path="res://piano/How_Bout_Dat_2.wav" id="16_8k8wa"]
+[ext_resource type="AudioStream" uid="uid://rlm70ndjllid" path="res://piano/How_Bout_Dat_3.wav" id="17_avn36"]
+[ext_resource type="AudioStream" uid="uid://bhs2rwd68kjuy" path="res://piano/How_Bout_Dat_4.wav" id="18_mc7i0"]
+[ext_resource type="AudioStream" uid="uid://can8486t8gtom" path="res://piano/How_Bout_Dat_5.wav" id="19_epo3x"]
+[ext_resource type="AudioStream" uid="uid://82fm3r4u3u7p" path="res://piano/How_Bout_Dat_6.wav" id="20_wf6tu"]
+[ext_resource type="AudioStream" uid="uid://by2una83scjxd" path="res://piano/How_Bout_Dat_7.wav" id="21_ffmyt"]
+[ext_resource type="AudioStream" uid="uid://ddd4cknrx06q1" path="res://piano/How_Bout_Dat_10.wav" id="22_8q305"]
+[ext_resource type="AudioStream" uid="uid://wmtv53riga3i" path="res://piano/How_Bout_Dat_11.wav" id="23_amqcw"]
+[ext_resource type="AudioStream" uid="uid://bu1fhce2q167r" path="res://piano/How_Bout_Dat_12.wav" id="24_mqxfs"]
+[ext_resource type="AudioStream" uid="uid://dtqwuo5ik4u67" path="res://piano/How_Bout_Dat_13.wav" id="25_kr00n"]
+[ext_resource type="AudioStream" uid="uid://bwnxqgwy3cpvy" path="res://piano/How_Bout_Dat_14.wav" id="26_ff0le"]
+[ext_resource type="AudioStream" uid="uid://c78l8mh35aik" path="res://piano/How_Bout_Dat_15.wav" id="27_guvus"]
+[ext_resource type="AudioStream" uid="uid://dk7nxd84g6jwl" path="res://piano/How_Bout_Dat_16.wav" id="28_17v1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svh1v"]
-size = Vector2(40, 39)
+size = Vector2(300, 39)
 
 [node name="audio_demo" type="Node2D"]
 script = ExtResource("1_cbxpo")
+
+[node name="HSlider4" type="HSlider" parent="."]
+offset_left = 230.0
+offset_top = 81.0
+offset_right = 569.0
+offset_bottom = 97.0
+max_value = 20000.0
+
+[node name="Button3" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Play!!!!"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_3hsxw")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(85, 46)
+position = Vector2(81, 118)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 0.5)
+position = Vector2(130, 0.5)
 shape = SubResource("RectangleShape2D_svh1v")
 
 [node name="ColorRect" type="ColorRect" parent="Area2D"]
@@ -39,7 +65,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
 offset_top = -20.0
-offset_right = 20.0
+offset_right = 280.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -69,6 +95,7 @@ max_value = 20.0
 step = 0.01
 
 [node name="drum_looper" type="Node2D" parent="."]
+visible = false
 script = ExtResource("3_ou6hb")
 
 [node name="Clap-tape" type="AudioStreamPlayer" parent="drum_looper"]
@@ -105,14 +132,13 @@ stream = ExtResource("13_31tq5")
 stream = ExtResource("14_k3cbx")
 
 [node name="Timer" type="Timer" parent="drum_looper"]
-wait_time = 0.5
-autostart = true
+wait_time = 0.1
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 84.0
-offset_top = 144.0
-offset_right = 171.0
-offset_bottom = 175.0
+offset_left = 89.0
+offset_top = 252.0
+offset_right = 176.0
+offset_bottom = 283.0
 text = "Next Note
 "
 
@@ -125,6 +151,66 @@ offset_bottom = 269.0
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(429, 305)
 
+[node name="HSlider5" type="HSlider" parent="."]
+offset_left = 163.0
+offset_top = 42.0
+offset_right = 460.0
+offset_bottom = 58.0
+min_value = 20.0
+max_value = 20000.0
+value = 20.0
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("3_ou6hb")
+
+[node name="HowBoutDat" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("15_44dq1")
+
+[node name="HowBoutDat2" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("16_8k8wa")
+
+[node name="HowBoutDat3" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("17_avn36")
+
+[node name="HowBoutDat4" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("18_mc7i0")
+
+[node name="HowBoutDat5" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("19_epo3x")
+
+[node name="HowBoutDat6" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("20_wf6tu")
+
+[node name="HowBoutDat7" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("21_ffmyt")
+
+[node name="HowBoutDat10" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("22_8q305")
+
+[node name="HowBoutDat11" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("23_amqcw")
+
+[node name="HowBoutDat12" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("24_mqxfs")
+
+[node name="HowBoutDat13" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("25_kr00n")
+
+[node name="HowBoutDat14" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("26_ff0le")
+
+[node name="HowBoutDat15" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("27_guvus")
+
+[node name="HowBoutDat16" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("28_17v1n")
+
+[node name="Timer" type="Timer" parent="Node2D"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="value_changed" from="HSlider4" to="." method="_on_h_slider_4_value_changed"]
+[connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
@@ -134,3 +220,5 @@ position = Vector2(429, 305)
 [connection signal="timeout" from="drum_looper/Timer" to="drum_looper" method="_on_timer_timeout"]
 [connection signal="button_down" from="Button2" to="drum_looper" method="_on_button_2_button_down"]
 [connection signal="value_changed" from="HSlider3" to="." method="_on_h_slider_3_value_changed"]
+[connection signal="value_changed" from="HSlider5" to="." method="_on_h_slider_5_value_changed"]
+[connection signal="timeout" from="Node2D/Timer" to="drum_looper" method="_on_timer_timeout"]
