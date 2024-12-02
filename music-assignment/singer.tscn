@@ -40,20 +40,6 @@ offset_top = 235.0
 offset_right = 540.0
 offset_bottom = 275.0
 
-[node name="singer" type="Node2D" parent="."]
-script = ExtResource("1_blag6")
-
-[node name="Player" type="AudioStreamPlayer" parent="singer"]
-stream = SubResource("AudioStreamGenerator_jr87t")
-
-[node name="singer2" type="Node2D" parent="."]
-script = ExtResource("1_blag6")
-range_start = 3000
-range_end = -200
-
-[node name="Player" type="AudioStreamPlayer" parent="singer2"]
-stream = SubResource("AudioStreamGenerator_jr87t")
-
 [node name="singer3" type="Node2D" parent="."]
 script = ExtResource("1_blag6")
 range_start = -1000
@@ -62,4 +48,9 @@ range_end = 1000
 [node name="Player" type="AudioStreamPlayer" parent="singer3"]
 stream = SubResource("AudioStreamGenerator_jr87t")
 
+[node name="HSlider2" type="HSlider" parent="."]
+offset_right = 912.0
+offset_bottom = 16.0
+
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="HSlider2" to="." method="_on_h_slider_2_value_changed"]

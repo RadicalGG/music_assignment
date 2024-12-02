@@ -15,3 +15,10 @@ func _on_h_slider_value_changed(value: float) -> void:
 	var phaser:AudioEffectPhaser = AudioServer.get_bus_effect(0, 0)
 	phaser.rate_hz = value
 	pass # Replace with function body.
+
+
+func _on_h_slider_2_value_changed(value: float) -> void:
+	
+	$singer3/Player.volume_db = linear_to_db(value)
+	
+	pass # Replace with function body.
