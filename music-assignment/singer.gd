@@ -14,6 +14,8 @@ var playback: AudioStreamPlayback = null # Actual playback stream, assigned in _
 var t = 0
 var speed = 20
 
+
+
 func _fill_buffer():
 	var increment = pulse_hz / sample_hz
 
@@ -37,10 +39,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var n = noise.get_noise_1d(t * speed)
+	
+	
+	# remap remaps a number in a range to a new range
+	# example
+	# remap(75, 0, 100, -1, 1) # Returns 0.5
 	pulse_hz = remap(n, -1, 1, range_start, range_end)
 	print(n)
-	var h = remap(pulse_hz, 0, 2000, 50, 300)
-	# $mouth.size.y = h
+	var h = remap(n, -1, 1, 10, 300)
+	$"../mouth".size.y = h
+	$"../mouth".size.x = h
 	t += delta
 	_fill_buffer()
 	pass
